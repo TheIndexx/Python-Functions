@@ -1,7 +1,9 @@
 import sys
 import os
+from inspect import getsourcefile
+from os.path import abspath
 
-directoryName = input('Enter Dump log folder directoru (will parse through sub-directories: ')
+directoryName = input('Enter Dump log folder directoru (will parse through sub-directories too): ')
 runName = input('Enter run name: ')
 
 for subdir, dirs, files in os.walk(directoryName):
@@ -12,6 +14,7 @@ for subdir, dirs, files in os.walk(directoryName):
             with open(os.path.join(directoryName, filepath)) as f:
                 content = f.read()
                 if runName in content:
+                    print("Run was found in: " + f.name)
                     jojo = content.split('NEW RUN')
                     length = len(jojo)
                     for i in range(length):
@@ -28,4 +31,4 @@ for subdir, dirs, files in os.walk(directoryName):
                         eachLine = simLines[lineNum2]
                         simName = eachLine.split('names = ')
                         if len(simName) > 1:
-                            print(simName[1])
+                            print("All Runs in TR_Dump log: " + '\n' + simName[1])
