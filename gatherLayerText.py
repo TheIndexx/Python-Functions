@@ -2,7 +2,7 @@ import sys
 import os
 import re
 
-# Get Dump Log Path and Run Name
+# Get Dump Log Path, Run Name, Layer Number
 
 filePath = input('Enter TR_dump.log path: ')
 runName = input('Enter run name: ')
