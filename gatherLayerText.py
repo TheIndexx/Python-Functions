@@ -1,5 +1,4 @@
 import sys
-import os
 import re
 
 # Get Dump Log Path, Run Name, Layer Number
