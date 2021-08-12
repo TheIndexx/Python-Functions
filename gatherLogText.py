@@ -10,10 +10,9 @@ import os
 
 # Open and Read File
 
-file = open(sys.argv[1], "r")
-fileContents = file.read()
-
 def getLogText():
+    file = open(sys.argv[1], "r")
+    fileContents = file.read()
     allRuns = fileContents.split('NEW RUN') # Split file contents by New Run into array
     length = len(allRuns) # Check length of array
     x = -1

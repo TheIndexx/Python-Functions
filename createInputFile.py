@@ -1,6 +1,9 @@
-# Only input is tissue model text
-# Example input:
-"""/************************************************/
+import sys
+
+# Only input is a text file containing the tissue model text.
+# Example text file contents:
+"""
+/************************************************/
 *                   NEW RUN ...                 */
 /************************************************/
 Created on Wed Mar 10 10:14:00 2021
@@ -87,13 +90,6 @@ def createInputFile(inputText):
     return inputFile
 
 if __name__ == "__main__":
-    lines = []
-    while True:
-        line = input()
-        if line:
-            lines.append(line)
-        else:
-            break
-    inputText = '\n'.join(lines)
-    for line in createInputFile(inputText):
+    f = open(sys.argv[1], "r")
+    for line in createInputFile(f.read()):
         print(line)
